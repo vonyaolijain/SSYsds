@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxgc.mapper.ClasMapper">
+
+
+
+	<resultMap type="com.xxgc.bean.Clas" id="getbu">
+		<id column="id" property="id" />
+		<result column="cname" property="cname" />
+        <collection property="stu" select="com.xxgc.mapper.StudentMapper.findcid" column="id"></collection>
+	</resultMap>
+	<select id="getAllfb" resultMap="getbu">
+
+		select * from clas where id=#{id}
+	</select>
+
+
+
+
+
+
+
+
+	<select id="getid" resultType="com.xxgc.bean.Clas">
+
+		select * from clas where id=#{id}
+
+	</select>
+
+	<resultMap type="com.xxgc.bean.Clas" id="getall">
+		<id column="cid" property="id" />
+		<result column="cname" property="cname" />
+
+		<collection property="stu" ofType="com.xxgc.bean.Student">
+			<id column="sid" property="id" />
+			<result column="name" property="name" />
+			<result column="address" property="address" />
+		</collection>
+	</resultMap>
+
+	<select id="getAll" resultMap="getall">
+		select student.id sid,
+		student.name name,student.address address
+		,student.cid ids, clas.id
+		cid, clas.cname cname from student inner
+		join clas on
+		student.cid=clas.id where clas.id=#{id}
+	</select>
+
+
+</mapper>

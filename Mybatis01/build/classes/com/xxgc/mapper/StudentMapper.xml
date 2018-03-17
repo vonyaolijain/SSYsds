@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxgc.mapper.StudentMapper">
+
+
+<resultMap type="com.xxgc.bean.Student" id="findcl">
+<id column="id" property="id"/>
+<result column="name" property="name"/>
+<result column="address" property="address"/>
+</resultMap>
+
+
+<select id="findcid" resultMap="findcl">
+select * from student where cid=#{id}
+
+</select>
+
+	<resultMap type="com.xxgc.bean.Student" id="Findall">
+	<id column="sid" property="id"/>
+    <result column="name" property="name"/>
+    <result column="address" property="address"/>
+    <result column="cid" property="clas.id"/>
+    <result column="cname" property="clas.cname"/>
+    
+	</resultMap>
+
+	<select id="findall" resultMap="Findall">
+		select student.id sid, student.name name,student.address address
+		,student.cid ids, clas.id cid, clas.cname cname from student inner
+		join clas on student.cid=clas.id where student.id=#{id}
+
+	</select>
+
+<resultMap type="com.xxgc.bean.Student" id="findalls">
+	<id column="id" property="id"/>
+    <result column="name" property="name"/>
+    <result column="address" property="address"/>
+ 
+    <association property="clas" select="com.xxgc.mapper.ClasMapper.getid" column="cid"></association>
+</resultMap>
+
+<select id="findalls" resultMap="findalls">
+select * from student where id=#{id}
+</select>
+
+
+
+	<select id="findbyid" resultType="student">
+		select * from student where id = #{id}
+	</select>
+
+	<select id="findidandname" resultType="student">
+		select * from student where id = #{id} and name=#{name}
+	</select>
+
+	<select id="findmh" resultType="student">
+		select * from student where name like #{name}
+	</select>
+
+	<!-- insert -->
+	<insert id="StuAdd" useGeneratedKeys="true" keyProperty="id">
+		insert into student (name,address) values(#{name},#{address})
+
+	</insert>
+
+	<update id="StuUpd">
+		update student set name=#{name},address=#{address} where id=#{id}
+	</update>
+
+	<delete id="StuDel">
+		delete from student where id=#{id}
+
+	</delete>
+
+</mapper>
