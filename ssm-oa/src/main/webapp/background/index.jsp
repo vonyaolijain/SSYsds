@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -12,8 +13,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title></title>
-	<link rel="stylesheet" href="../css/reset.css">
-	<link rel="stylesheet" href="../css/public.css">
+	<link rel="stylesheet" href="<%=path %>/css/reset.css">
+	<link rel="stylesheet" href="<%=path %>/css/public.css">
 </head>
 <body>
 
@@ -31,12 +32,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              
         %>  
       
+      <c:if test="${sessionScope.employee.name ==null}">
+      <jsp:forward page="../login.jsp"></jsp:forward>
+      </c:if>
 <div class="public-header-warrp">
 	<div class="public-header">
 		<div class="content">
 			<div class="public-header-logo"><a href=""><i>LOGO</i><h3>人员管理系统</h3></a></div>
 			<div class="public-header-admin fr">
-				<p class="admin-name" ><a style="color: red"> ${sessionScope.employee.rname}:</a>${sessionScope.employee.name }</p>
+				<p class="admin-name" ><a style="color: red"> </a>${sessionScope.employee.name }</p>
 				<div class="public-header-fun fr">
 					<a href="../ManagerServlet?type=quits" class="public-header-man">退出</a>
 					<a href="../ManagerServlet?type=quit" class="public-header-loginout">安全注销</a>	
@@ -98,7 +102,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<a href="javascript:;">部门系统</a>
 					<div class="ifame-item-sub">
 						<ul>
-							<li class="active"><a href="../de_getAll" target="content">查询部门</a></li>
+							<li class="active"><a href="<%=path %>/de_getAll" target="content">查询部门</a></li>
 							<li><a href="" target="">待完善</a></li>
 							<li><a href="" target="">待完善</a></li>
 							<li><a href="" target="">待完善</a></li>
@@ -109,7 +113,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<a href="javascript:;">员工系统</a>
 					<div class="ifame-item-sub">
 						<ul>
-							<li><a href="../EmployeeServlet?type=Findall" target="content">查询员工</a></li>
+							<li><a href="<%=path %>/em_getAll" target="content">查询员工</a></li>
 							<li><a href="">待完善</a></li>
 						</ul>
 					</div>
@@ -119,7 +123,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<a href="javascript:;">角色系统</a>
 					<div class="ifame-item-sub">
 						<ul>
-							<li><a  href="../RoleServlet?type=Findall" target="content">查询角色</a></li>
+							<li><a  href="<%=path %>/ro_getAll" target="content">查询角色</a></li>
 						<li><a href="" target="">待完善</a></li>
 						</ul>
 					</div>
@@ -147,11 +151,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<!-- 右侧内容展示部分 -->
 		<div class="public-ifame-content">
-		<iframe name="content" src="1.jsp" frameborder="0" id="mainframe" scrolling="yes" marginheight="0" marginwidth="0" width="100%" style="height: 600px;"></iframe>
+		<iframe name="content" src="background/1.jsp" frameborder="0" id="mainframe" scrolling="yes" marginheight="0" marginwidth="0" width="100%" style="height: 600px;"></iframe>
 		</div>
 	</div>
 </div>
-<script src="../js/jquery.min.js"></script>
+<script src="<%=path %>/js/jquery.min.js"></script>
 <script>
 $().ready(function(){
 	var item = $(".public-ifame-item");

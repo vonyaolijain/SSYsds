@@ -23,5 +23,21 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	<mvc:annotation-driven></mvc:annotation-driven>
-	<mvc:default-servlet-handler />
+
+	<mvc:default-servlet-handler /><!-- 防止静态资源被拦截 -->
+
+<mvc:interceptors>
+
+		<mvc:interceptor>
+<mvc:mapping path="/login" />
+<bean class="com.xxgc.utils.MemberInterceptor"></bean>
+			</mvc:interceptor>
+
+<mvc:interceptor>
+
+<mvc:mapping path="/*" />
+<bean class="com.xxgc.utils.PowerInterceptor"></bean>
+			</mvc:interceptor>
+
+	</mvc:interceptors>
 </beans>

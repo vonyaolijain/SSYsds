@@ -1,18 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+ <%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="css/manager_login.css">
+	<link rel="stylesheet" type="text/css" href="<%=path %>/css/manager_login.css">
 </head>
 <body>
 
 <section class="container">
     <div class="login">
       <h1>人员信息管理登录</h1>
-      <form method="post" action="EmployeeServlet?type=login">
+      <form method="post" action="<%=path %>/login">
         <p><input type="text" name="username" value="${sessionScope.username }" placeholder="用户名"></p>
         <p><input type="password" name="password" value="${sessionScope.password }" placeholder="密码"></p>
         <p class="remember_me">

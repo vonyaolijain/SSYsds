@@ -34,22 +34,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				 <th>入职时间</th>	
 				  <th>所属部门</th>	
 				    <th>角色</th>
-				    <th>拥有权限</th>
-				  <th>操作</th>			
+				   <th>操作</th>
+				  			
 	   		</tr>
   <c:forEach items="${requestScope.employeeList}" var="employee" >
 		<tr align="center">
 			 <td>${employee.id }</td>
-			  <td>${employee.username}</td>
-			   <td>${employee.password }</td>
+			 <td>${employee.username}</td>
+			 <td>${employee.password }</td>
 			 <td>${employee.name }</td>
 			 <td>${employee.sex}</td>
 			 <td>${employee.age}</td>
 			 <td>${employee.time}</td>
-			 <td>${employee.departmentname}</td>	
-			 <td>${employee.rname}</td>
-			 <td>${employee.pname}</td>
-			<td>
+             <td>${employee.department.departmentname}</td>
+		     <td>${employee.role.rname}</td>
+				<td>
 			 <div class="button-group">
       <a class="button border-main" href="EmployeeServlet?type=findbyid&id=${employee.id }"><span class="icon-edit" ></span> 修改</a>
       <a class="button border-red"  href="EmployeeServlet?type=delete&id=${employee.id }" onclick="return del(1,1)"><span class="icon-trash-o"></span> 删除</a>

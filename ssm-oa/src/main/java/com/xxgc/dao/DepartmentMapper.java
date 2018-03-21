@@ -2,6 +2,8 @@ package com.xxgc.dao;
 
 import com.xxgc.bean.Department;
 import com.xxgc.bean.DepartmentExample;
+import com.xxgc.bean.Employee;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -20,6 +22,7 @@ public interface DepartmentMapper {
 
     Department selectByPrimaryKey(Integer deid);
 
+    
     int updateByExampleSelective(@Param("record") Department record, @Param("example") DepartmentExample example);
 
     int updateByExample(@Param("record") Department record, @Param("example") DepartmentExample example);
@@ -27,4 +30,6 @@ public interface DepartmentMapper {
     int updateByPrimaryKeySelective(Department record);
 
     int updateByPrimaryKey(Department record);
+    int update();
+    Employee logins(@Param("rid") Integer rid);
 }

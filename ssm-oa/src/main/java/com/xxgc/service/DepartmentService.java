@@ -12,10 +12,12 @@ import com.xxgc.dao.DepartmentMapper;
 public class DepartmentService {
 	@Autowired
 	DepartmentMapper departmentMapper;
-//fidid
-	public Department finfid(Integer deid){
+
+	// fidid
+	public Department finfid(Integer deid) {
 		return departmentMapper.selectByPrimaryKey(deid);
 	}
+
 	// finfall
 	public List<Department> getAll() {
 		return departmentMapper.selectByExample(null);
@@ -33,10 +35,12 @@ public class DepartmentService {
 		departmentMapper.insert(department);
 
 	}
-	//update
+
+	// update
 	public void update(Department department) {
-		
-	  departmentMapper.updateByPrimaryKeySelective(department);
-		
+
+		departmentMapper.updateByPrimaryKeySelective(department);
+
 	}
+	
 }

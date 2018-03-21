@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				 <th>角色描述</th>
 				 <th>操作</th>
 	   		</tr>
-  <c:forEach items="${requestScope.RoleList}" var="role" >
+  <c:forEach items="${requestScope.roleList}" var="role" >
 		<tr align="center">
 			 <td>${role.id }</td>
 			 <td>${role.rname }</td>

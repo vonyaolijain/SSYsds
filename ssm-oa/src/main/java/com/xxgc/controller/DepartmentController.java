@@ -41,9 +41,12 @@ public class DepartmentController {
 			@Param(value = "deid") Integer deid) {
 		department.setDepartmentname(departmentname);
 		department.setDdesc(ddesc);
+		System.out.println("id"+ deid);
 		if (deid == null) {
+			System.out.println("add");
 			departmentService.add(department);
 		} else {
+			System.out.println("update");
 			department.setDeid(deid);
 			departmentService.update(department);
 		}

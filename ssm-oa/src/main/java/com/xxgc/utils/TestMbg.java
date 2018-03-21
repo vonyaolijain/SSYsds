@@ -1,4 +1,4 @@
-package com.xxgc.test;
+package com.xxgc.utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import org.mybatis.generator.config.xml.ConfigurationParser;
 import org.mybatis.generator.internal.DefaultShellCallback;
 
 
-public class HelloWorldTest {
+public class TestMbg {
 
 	@Test
 	public void testMbg() throws Exception {
