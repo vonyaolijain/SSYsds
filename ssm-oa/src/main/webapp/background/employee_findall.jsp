@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </style>
 </head>
 <body>
-       	<h2 align="center"><a href="EmployeeServlet?type=findlist">添加员工</a></h2>
+       	<h2 align="center"><a href="em_add">添加员工</a></h2>
 <br/>
 
 <table class="table table-hover text-center" >
@@ -50,8 +50,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		     <td>${employee.role.rname}</td>
 				<td>
 			 <div class="button-group">
-      <a class="button border-main" href="EmployeeServlet?type=findbyid&id=${employee.id }"><span class="icon-edit" ></span> 修改</a>
-      <a class="button border-red"  href="EmployeeServlet?type=delete&id=${employee.id }" onclick="return del(1,1)"><span class="icon-trash-o"></span> 删除</a>
+      <a class="button border-main" href="em_findid?id=${employee.id }"><span class="icon-edit" ></span> 修改</a>
+      <a class="button border-red"  href="em_delete?id=${employee.id }" onclick="return del(1,1)"><span class="icon-trash-o"></span> 删除</a>
       </div></td>
 			 	
    		</tr>	

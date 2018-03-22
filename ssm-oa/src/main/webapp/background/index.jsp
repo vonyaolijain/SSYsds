@@ -132,7 +132,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<a href="javascript:;">权限系统</a>
 					<div class="ifame-item-sub">
 						<ul>
-							<li><a href="../PowerServlet?type=Findall" target="content">查看</a></li>
+							<li><a href="<%=path %>/po_getAll" target="content">查看权限</a></li>
 							<li><a href="../ImagesServlet?type=findbystate&imstate=02" target="content"> 普通图片</a></li>
 						</ul>
 					</div>

@@ -24,13 +24,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	   		<tr  align="center">
 				 <th>ID</th>
 				 <th>权限名称</th>
+				  <th>权限url</th>
 				 <th>权限描述</th>
 				 <th>操作</th>
 	   		</tr>
-  <c:forEach items="${requestScope.PowerList}" var="power" >
+  <c:forEach items="${requestScope.powerList}" var="power" >
 		<tr align="center">
 			 <td>${power.pid }</td>
 			 <td>${power.pname }</td>
+			  <td>${power.purl }</td>
 			 <td>${power.pdesc }</td>
 								 
 			 <td>
