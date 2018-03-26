@@ -46,6 +46,7 @@
  	<!-- <table tableName="department" domainObjectName="Department" ></table> 
        <table tableName="employee" domainObjectName="Employee" ></table> -->
      <!--   <table tableName="role" domainObjectName="Role"></table> -->
-         <table tableName="power" domainObjectName="Power"></table>
+        <!--  <table tableName="power" domainObjectName="Power"></table> -->
+           <table tableName="prteam" domainObjectName="Prteam"></table>
 	</context>
 </generatorConfiguration>

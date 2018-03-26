@@ -2,6 +2,8 @@ package com.xxgc.bean;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+@Component
 public class Role {
     private Integer id;
 

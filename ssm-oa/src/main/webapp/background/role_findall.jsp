@@ -25,6 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				 <th>ID</th>
 				 <th>角色名称</th>
 				 <th>角色描述</th>
+				 <th>拥有权限</th>
 				 <th>操作</th>
 	   		</tr>
   <c:forEach items="${requestScope.roleList}" var="role" >
@@ -32,9 +33,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 <td>${role.id }</td>
 			 <td>${role.rname }</td>
 				 <td>${role.rdesc }</td>
-								 
+				<td><a href="ro_getpo?id=${role.id }">点击查看</a></td>				 
 			 <td>
 			 <div class="button-group">
+			 
       <a class="button border-main"  href="DepartmentServlet?type=findbyid&id=${department.deid}" ><span class="icon-edit" ></span> 修改</a>
       <a class="button border-red"  href="DepartmentServlet?type=delete&id=${department.deid }" onclick="return del(1,1)" ><span class="icon-trash-o"></span> 删除</a>
       </div></td>
@@ -42,17 +44,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    		</tr>	
 	</c:forEach>
    </table>
-<script type="text/javascript">
-	var btn=document.getElementById("a2");
-	btn.onclick=function(){
-		alert("没有权限");
-	}
-	var btn=document.getElementById("a3");
-	btn.onclick=function(){
-		alert("没有权限");
-	}
-	
-</script>
 
 
 </body>

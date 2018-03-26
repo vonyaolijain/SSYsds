@@ -1,8 +1,11 @@
 package com.xxgc.dao;
 
+import com.xxgc.bean.Power;
 import com.xxgc.bean.Role;
 import com.xxgc.bean.RoleExample;
 import java.util.List;
+import java.util.Set;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface RoleMapper {
@@ -29,4 +32,6 @@ public interface RoleMapper {
     int updateByPrimaryKey(Role record);
     
    Role selectByPrimaryKeylo(Integer id);
+   
+   List<Power> findp(Integer id);
 }
